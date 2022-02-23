@@ -1,0 +1,23 @@
+{
+  "name": "geysertimes-js-sdk",
+  "version": "0.1.0a",
+  "description": "",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CY8s/geysertimes-js-sdk.git"
+  },
+  "keywords": [],
+  "author": "Casey Yates",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CY8s/geysertimes-js-sdk/issues"
+  },
+  "homepage": "https://github.com/CY8s/geysertimes-js-sdk#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  }
+}

@@ -3,19 +3,47 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 import "isomorphic-fetch";
-export const getGeysers = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator(function* () {
-    const request = yield fetch("https://www.geysertimes.org/api/v5/geysers");
+const baseURL = "https://www.geysertimes.org/api/v5";
+
+const getData = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator(function* (pathSegment) {
+    const request = yield fetch(`${baseURL}/${pathSegment}`);
     const data = yield request.json();
+    return data;
+  });
+
+  return function getData(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+export const getGeysers = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator(function* () {
+    const data = yield getData("geysers");
     return data.geysers;
   });
 
   return function getGeysers() {
-    return _ref.apply(this, arguments);
+    return _ref2.apply(this, arguments);
+  };
+}();
+export const getPredictions = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator(function* (args = {}) {
+    const {
+      userIDs = "44,208"
+    } = args;
+    const data = yield getData(`predictions_latest?userID=${userIDs}`);
+    return data.predictions;
+  });
+
+  return function getPredictions() {
+    return _ref3.apply(this, arguments);
   };
 }();
 const client = Object.freeze({
-  getGeysers
+  getGeysers,
+  getPredictions,
+  sayHello
 });
 export default client;
 //# sourceMappingURL=index.js.map

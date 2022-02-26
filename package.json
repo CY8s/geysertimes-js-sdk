@@ -2,7 +2,7 @@
   "name": "geysertimes-js-sdk",
   "version": "0.1.0a",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
@@ -12,10 +12,11 @@
     }
   },
   "scripts": {
-    "build": "npm run build-module && npm run build-commonjs",
+    "build": "npm run build-module && npm run build-commonjs && npm run build-webpack",
     "build-module": "cross-env BABEL_ENV=module babel ./src --out-dir ./dist/esm --source-maps --copy-files",
     "build-commonjs": "cross-env BABEL_ENV=commonjs babel ./src --out-dir ./dist/cjs --source-maps --copy-files",
-    "develop": "nodemon --watch ./src --exec 'npm run build-module && npm run build-commonjs'",
+    "build-webpack": "webpack",
+    "develop": "nodemon --watch ./src --exec 'npm run build'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,6 +31,7 @@
   },
   "homepage": "https://github.com/CY8s/geysertimes-js-sdk#readme",
   "dependencies": {
+    "es6-promise-promise": "^1.0.0",
     "isomorphic-fetch": "^3.0.0"
   },
   "devDependencies": {
@@ -37,7 +39,11 @@
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.21.1",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
   }
 }

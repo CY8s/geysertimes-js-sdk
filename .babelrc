@@ -5,9 +5,31 @@
         [
           "@babel/preset-env",
           {
+            "useBuiltIns": "usage",
+            "corejs": 3,
             "targets": {
-              "node": "6.10"
-            }
+              "browsers": "last 2 versions, ie 10-11"
+            },
+            "modules": false
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "@babel/plugin-transform-modules-commonjs",
+          { "importInterop": "node" }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "browsers": "last 2 versions, ie 10-11"
+            },
+            "modules": false
           }
         ]
       ],

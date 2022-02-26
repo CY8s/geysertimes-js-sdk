@@ -1,0 +1,70 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "6.10"
+            }
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "@babel/plugin-transform-modules-commonjs",
+          { "importInterop": "node" }
+        ]
+      ]
+    },
+    "browser": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "browsers": "last 2 versions, ie 10-11"
+            },
+            "modules": false
+          }
+        ]
+      ],
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    },
+    "commonjs": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "6.10"
+            },
+            "modules": false
+          }
+        ]
+      ],
+      "plugins": [
+        [
+          "@babel/plugin-transform-modules-commonjs",
+          { "importInterop": "none" }
+        ]
+      ]
+    },
+    "module": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "6.10"
+            },
+            "modules": false
+          }
+        ]
+      ],
+      "plugins": []
+    }
+  },
+  "sourceMaps": true
+}

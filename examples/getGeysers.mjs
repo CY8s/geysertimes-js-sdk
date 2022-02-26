@@ -1,4 +1,4 @@
-import client from "../index.mjs";
+import client from "../src/index.js";
 
 const geysers = await client.getGeysers();
 

@@ -1,4 +1,6 @@
-import client from "../src/index.js";
+import Client from "../dist/esm/index.js";
+
+const client = new Client();
 
 const geysers = await client.getGeysers();
 

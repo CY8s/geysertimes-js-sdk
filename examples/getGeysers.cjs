@@ -1,6 +1,5 @@
-//import client from "../index.mjs";
-const client = require("../dist/cjs").default;
+const Client = require("../dist/cjs").default;
 
-//console.log(client);
+const client = new Client();
 
 client.getGeysers().then((geysers) => console.log(geysers));

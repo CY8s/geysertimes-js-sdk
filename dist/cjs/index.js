@@ -35,8 +35,16 @@ var _geysers = /*#__PURE__*/new WeakMap();
 
 var _getData = /*#__PURE__*/new WeakSet();
 
+/**
+ *
+ */
 class Client {
-  constructor(args = {}) {
+  /**
+   * Constructor that creates a GeyserTimes API Client
+   *
+   * @param {string} config.baseURL - Base URL for Geysertimes API
+   */
+  constructor(config = {}) {
     _classPrivateMethodInitSpec(this, _getData);
 
     _classPrivateFieldInitSpec(this, _baseURL, {
@@ -51,11 +59,17 @@ class Client {
 
     const {
       baseURL = "https://www.geysertimes.org/api/v5"
-    } = args;
+    } = config;
 
     _classPrivateFieldSet(this, _baseURL, baseURL);
   }
 
+  /**
+   *
+   * @param {Object} args - Get Geyser Arguments
+   * @param {boolean} args.forceRefresh - Force refresh of geyser list
+   * @returns {Object[]} Array of Objects containing geyser data.
+   */
   getGeysers(args = {}) {
     var _this = this;
 
@@ -73,6 +87,13 @@ class Client {
       return _classPrivateFieldGet(_this, _geysers);
     })();
   }
+  /**
+   *
+   * @param {Object} args - Get Prediction Arguments
+   * @param {string} args.userIDs - Comma-delimited list of userIDs for prediction sources
+   * @returns {Object[]} Array of Objects containing geyser data.
+   */
+
 
   getPredictions(args = {}) {
     var _this2 = this;

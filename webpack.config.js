@@ -6,8 +6,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist/browser"),
     filename: "index.js",
-    library: "geysertimes",
-    libraryTarget: "umd",
+    library: {
+      name: "GeyserTimes",
+      type: "umd",
+      export: "default",
+    },
   },
   module: {
     rules: [
